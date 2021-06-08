@@ -1,0 +1,327 @@
+:root {
+    --amarillo: #fed339;
+    --fondo: #f2f2f2;
+    --azul: #183052;
+    --letra1: #AAA;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+}
+
+header {
+    background: var(--azul);
+    padding: 30px 0;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--amarillo);
+    font-size: 40px;
+}
+
+header .logo i {
+    color: var(--amarillo);
+}
+
+header .search {
+    background: #d4d5d7;
+    border: 1px solid var(--amarillo);
+    margin-left: 50px;
+    border-radius: 50px;
+    padding: 0px 10px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+header .search input[type="text"] {
+    border: none;
+    border-bottom: 0px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+header .search .btn {
+    border: none;
+    outline: none;
+    height: 50px;
+    background: transparent;
+    color: var(--azul);
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+header .search .btn i:hover {
+    color: var(--amarillo);
+}
+
+header nav {
+    display: flex;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header nav a {
+    color: var(--letra1);
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header nav li {
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+header nav i {
+    margin-left: 10px;
+}
+
+header nav a:hover,
+header nav a.activo {
+    color: #FFF;
+}
+
+.user {
+    display: flex;
+}
+
+header nav a.usuario {
+    color: var(--amarillo);
+    cursor: pointer;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav .submenu a {
+    margin-left: 12px;
+    margin-right: -8px;
+}
+
+header nav .submenu {
+    background: var(--amarillo);
+    box-shadow: 3px 10px 10px;
+    background: var(--amarillo);
+    border: 1px solid white;
+    border-radius: 50px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+    display: none;
+
+
+}
+
+header nav a:hover + ul, .submenu:hover {
+    display: block;
+}
+
+
+header nav a.iniciarSesion {
+    background: var(--amarillo);
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 15px 15px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+.info {
+    margin: 85px 0 -205px 0;
+
+}
+
+.info h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--amarillo);
+}
+
+.character-box {
+    width: 392px;
+    height: 521px;
+    margin-left: 50%;
+    border: 7px solid var(--azul);
+    margin-top: 17%;
+    color: var(--azul);
+    position: relative;
+    transform: translate(-50%, -18%);
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding: 77px 27px;
+}
+
+.character-box h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+
+    font-size: 22px;
+}
+
+.character-box label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+}
+
+.character-box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.character-box input[type="text"] {
+    font-family: 'Ubuntu', sans-serif;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: var(--azul);
+    font-size: 16px;
+}
+
+
+.character-box input[type="submit"] {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fed339;
+    color: var(--azul);
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.character-box a.resgistrarse {
+    background: var(--amarillo);
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 15px 15px;
+    margin-bottom: 0.4em;
+    margin-left: 45px;
+    cursor: pointer;
+}
+
+.character-box input[type="submit"]:hover {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    cursor: pointer;
+    background: var(--azul);
+    color: var(--amarillo);
+}
+
+.character-box a {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.character-box a:hover {
+    color: #fff;
+}
+
+footer {
+    background: var(--azul);
+    padding-bottom: 0.1px;
+
+}
+
+.piePagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-bottom: 40px;
+
+}
+
+.contactoP {
+    width: 40%;
+    color: white;
+
+}
+
+.contactoP h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.contactoP p {
+    font-weight: 500;
+    color: var(--amarillo);
+}
+
+.RedesSociales {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.RedesSociales a {
+    display: inline-block;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--amarillo);
+    border-radius: 50%;
+    text-align: center;
+    color: var(--amarillo);
+
+}
+
+.RedesSociales a:hover {
+    background: var(--amarillo);
+    color: var(--fondo);
+}
+
+.RedesSociales i {
+    font-size: 30px;
+    line-height: 60px;
+
+}
+
+.line {
+    width: 100%;
+    max-width: 12000px;
+    margin: auto;
+    height: 2px;
+    background: white;
+    margin-bottom: 35px;
+}

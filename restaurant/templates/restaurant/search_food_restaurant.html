@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/restaurant_dish.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+
+    <title>World Restaurants</title>
+
+</head>
+<body>
+<header>
+    <div class="contenedor">
+        <a class="logo" href={% url 'WorldRestaurant' %} alig="center">World <i class="fas fa-utensils"></i> Restaurants
+        </a>
+        <div class="search">
+            <form action="{% url 'search_restaurant_dish' restaurant.id %}" method="post">{% csrf_token %}
+                <input type="text" placeholder="Plato..." name="search">
+                <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <nav>
+            <a href={% url 'WorldRestaurant' %}>Inicio</a>
+            <a href={% url 'restaurants' %} class="activo">Restaurantes</a>
+            <a href={% url 'dish' %}>Platos</a>
+            {% if user.is_authenticated %}
+                <div class="user">
+                    <a herf="#" class="usuario"><i class="fas fa-user"></i> {{ user.username }}<i
+                            class="fas fa-angle-right"></i></a>
+                    <ul class="submenu">
+                        <li><a href={% url 'logout' %}>cerrar sesion<i class="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="log">
+                    <a href={% url 'login' %} class="iniciarSesion">Iniciar sesión</a>
+                </div>
+            {% endif %}
+            <a href={% url 'car' %}><i class="fas fa-shopping-cart"></i></a>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="info">
+        <div class="restaurant">
+            <div class="contenedor">
+                <img src="{{ restaurant.image }}">
+                <div class="titleR">
+                    <h1 align="center">{{ restaurant.name }}</h1>
+                </div>
+                <div class="commit">
+                    <p class="calificacion">{{ comment_avg.qualification__avg }} <i class="fas fa-star"></i>
+                        Opiniones: {{ comment_count }} <i class="fas fa-user"></i></p>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ restaurant.direction }}</p>
+                    <p><i class="fas fa-phone-alt"></i> {{ restaurant.phone }}</p>
+                    <p><i class="fas fa-building"></i> {{ restaurant.city }}</p>
+                    <p><i class="fas fa-globe-americas"></i> {{ restaurant.country }}</p>
+                    <a href={{ restaurant.website }}><i class="fas fa-laptop"></i> Página Web</a>
+                    <div class="addCommit">
+                        <a href={% url 'create_comment' restaurant.id %} class="Create">Escribir una opinión</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="line"></div>
+        <div class="title">
+            <div class="contenedor">
+                <h3>Explora nustros platos</h3>
+                <div class="boton">
+                    {% if perms.restaurant.add_dish %}
+                        <a href={% url 'create_dish' %} class="Create">Crear Platos</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="dish">
+            <div class="contenedor">
+                {% for item in dish %}
+                    {% if item.restaurant_id.id == restaurant.id %}
+                        <div class="card">
+                            <img src="{{ item.image }}">
+                            {% if perms.restaurant.delete_dish %}
+                                <a class="delete" href={% url 'delete_dish' item.id %}><i
+                                        class="fas fa-minus-circle"></i></a>
+                            {% endif %}
+                            <div class="contenido">
+                                {% if perms.restaurant.change_dish %}
+                                    <a class="edit" href={% url 'update_dish' item.id %}>Editar<i
+                                            class="fas fa-edit"></i>
+                                    </a>
+                                {% endif %}
+                                <h1>{{ item.name }}</h1>
+                                <p>{{ item.description }}</p>
+                                <p>Precio: ${{ item.price }}</p>
+                            </div>
+                            <div class="carrito">
+                                <div class="addCarrito">
+                                    <a href={% url 'add_car' item.id %}>Añadir al carrito</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="line"></div>
+        </div>
+        <div class="comment">
+            <div class="contenedor">
+                <h3>Opiniones</h3>
+                {% for item in comment %}
+                    {% if item.restaurant_id.id == restaurant.id %}
+                        <div class="cardC">
+                            <div class="avatar">
+                                <a href="#"><i class="fas fa-user"></i></a>
+                                <h3>@{{ item.user }}</h3>
+                            </div>
+                            <div class="contenidoC">
+                                <h2>{{ item.qualification }}<i class="fas fa-star"></i></h2>
+                                <h3>{{ item.title_opinion }}</h3>
+                                <p>{{ item.opinion }}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="line"></div>
+
+    </div>
+
+</main>
+<footer id="contacto">
+    <div class="contenedor">
+        <div class="piePagina">
+            <div class="contactoP">
+                <h2 class="name">Juan Pablo Robles Arias</h2>
+                <p>Construcción de Software</p>
+            </div>
+            <div class="RedesSociales">
+                <a href="https://www.instagram.com/juanrobles_21/"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.link/kel6ey"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/juan.pablo.robles.arias.21/"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div class="line"></div>
+
+    </div>
+
+</footer>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div class="home">
+    <a href="{% url 'WorldRestaurant' %}"><i class="fas fa-home"></i></a>
+</div>
+
+<div class="character-box">
+    <div class="avatar">
+        <a href="#"><i class="fas fa-user"></i></a>
+    </div>
+
+    <form action="{% url 'login' %}" method="post">{% csrf_token %}
+        {{ error }}
+        <!-- USER INPUT -->
+        <label>Usuario</label>
+        <input type="text" placeholder="User" name="username">
+        <!-- PASSWORD INPUT -->
+        <label>Password</label>
+        <input type="password" placeholder="Password" name="password">
+        <input type="submit" value="Iniciar sesión">
+        <a href={% url 'Register' %} class="resgistrarse">Conviértete en miembro</a>
+
+    </form>
+
+</div>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>

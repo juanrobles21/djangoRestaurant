@@ -1,0 +1,328 @@
+:root {
+    --amarillo: #fed339;
+    --fondo: #f2f2f2;
+    --azul: #183052;
+    --letra1: #AAA;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+}
+
+header {
+    background: var(--azul);
+    padding: 30px 0;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--amarillo);
+    font-size: 40px;
+}
+
+header .logo i {
+    color: var(--amarillo);
+}
+
+header .search {
+    background: #d4d5d7;
+    border: 1px solid var(--amarillo);
+    margin-left: 50px;
+    border-radius: 50px;
+    padding: 0px 10px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+header .search input[type="text"] {
+    border: none;
+    border-bottom: 0px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+header .search .btn {
+    border: none;
+    outline: none;
+    height: 50px;
+    background: transparent;
+    color: var(--azul);
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+header .search .btn i:hover {
+    color: var(--amarillo);
+}
+
+header nav {
+    display: flex;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header nav a {
+    color: var(--letra1);
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header nav li {
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+header nav i {
+    margin-left: 10px;
+}
+
+header nav a:hover,
+header nav a.activo {
+    color: #FFF;
+}
+
+.user {
+    display: flex;
+}
+
+header nav a.usuario {
+    color: var(--amarillo);
+    cursor: pointer;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav .submenu a {
+    margin-left: 12px;
+    margin-right: -8px;
+}
+
+header nav .submenu {
+    background: var(--amarillo);
+    box-shadow: 3px 10px 10px;
+    background: var(--amarillo);
+    border: 1px solid white;
+    border-radius: 50px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+    display: none;
+
+
+}
+
+header nav a:hover + ul, .submenu:hover {
+    display: block;
+}
+
+
+header nav a.iniciarSesion {
+    background: var(--amarillo);
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 15px 15px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+.carrito h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--amarillo);
+}
+
+.carrito .contenedor {
+    margin: 150px auto;
+    width: 65%;
+}
+
+.carrito table {
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.carrito .sinProductos {
+    text-align: center;
+}
+
+.carrito th, td {
+    padding: 20px;
+}
+
+.carrito thead {
+    background: var(--azul);
+    border-bottom: solid 7px var(--amarillo);
+    color: white;
+}
+
+.carrito .amount {
+    text-align: center;
+}
+
+.carrito .subtotal {
+    text-align: right;
+}
+
+.carrito .price i {
+    color: #E50914;
+}
+
+.carrito .price a {
+    margin-left: -120px;
+
+}
+
+.carrito .price td {
+
+}
+
+.carrito tbody {
+    border-bottom: solid 7px var(--amarillo);
+}
+
+.carrito tbody td {
+    border-bottom: solid 3px var(--amarillo);
+}
+
+.carrito .total {
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    background: var(--azul);
+    color: white;
+}
+
+.carrito .total .valor {
+    margin-left: 84%;
+}
+
+.carrito .confirmar {
+    margin-left: 87%;
+    margin-top: 20px;
+}
+
+.carrito .confirmar a {
+    font-family: 'Bebas Neue', cursive;
+    background: var(--azul);
+    border: 1px solid var(--amarillo);
+    border-radius: 10px;
+    color: var(--amarillo);
+    padding: 10px 10px;
+    margin-bottom: 0.4em;
+    width: 116px;
+    margin-right: 0px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.carrito .confirmar a:hover {
+    background: var(--amarillo);
+    color: var(--azul);
+    border: 1px solid var(--azul);
+}
+
+
+footer {
+    background: var(--azul);
+    padding-bottom: 0.1px;
+
+}
+
+.piePagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-bottom: 40px;
+
+}
+
+.contactoP {
+    width: 40%;
+    color: white;
+
+}
+
+.contactoP h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.contactoP p {
+    font-weight: 500;
+    color: var(--amarillo);
+}
+
+.RedesSociales {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.RedesSociales a {
+    display: inline-block;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--amarillo);
+    border-radius: 50%;
+    text-align: center;
+    color: var(--amarillo);
+
+}
+
+.RedesSociales a:hover {
+    background: var(--amarillo);
+    color: var(--fondo);
+}
+
+.RedesSociales i {
+    font-size: 30px;
+    line-height: 60px;
+
+}
+
+.line {
+    width: 100%;
+    max-width: 12000px;
+    margin: auto;
+    height: 2px;
+    background: white;
+    margin-bottom: 35px;
+}

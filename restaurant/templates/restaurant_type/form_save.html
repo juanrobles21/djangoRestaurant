@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>World Restaurants</title>
+    <link rel="stylesheet" href="{% static 'css/form_restaurant_type.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+
+<div class="character-box">
+    <div class="avatar">
+        <a href="#"><i class="fas fa-utensils"></i></a>
+    </div>
+    <h1 class="titulo">Crear tipo de cocina</h1>
+    <form action="{% url 'create_restaurant_type' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+       <input type="submit" value="Agregar">
+
+    </form>
+</div>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>

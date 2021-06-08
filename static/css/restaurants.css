@@ -1,0 +1,422 @@
+:root {
+    --amarillo: #fed339;
+    --fondo: #f2f2f2;
+    --azul: #183052;
+    --letra1: #AAA;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fondo);
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+}
+
+header {
+    background: var(--azul);
+    padding: 30px 0;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--amarillo);
+    font-size: 40px;
+}
+
+header .logo i {
+    color: var(--amarillo);
+}
+
+header .search {
+    background: #d4d5d7;
+    border: 1px solid var(--amarillo);
+    margin-left: 50px;
+    border-radius: 50px;
+    padding: 0px 10px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+header .search input[type="text"] {
+    border: none;
+    border-bottom: 0px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+header .search .btn {
+    border: none;
+    outline: none;
+    height: 50px;
+    background: transparent;
+    color: var(--azul);
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+header .search .btn i:hover {
+    color: var(--amarillo);
+}
+
+header nav {
+    display: flex;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header nav a {
+    color: var(--letra1);
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header nav li {
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+header nav i {
+    margin-left: 10px;
+}
+
+header nav a:hover,
+header nav a.activo {
+    color: #FFF;
+}
+
+.user {
+    display: flex;
+}
+
+header nav a.usuario {
+    color: var(--amarillo);
+    cursor: pointer;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav .submenu a {
+    margin-left: 12px;
+    margin-right: -8px;
+}
+
+header nav .submenu {
+    background: var(--amarillo);
+    box-shadow: 3px 10px 10px;
+    background: var(--amarillo);
+    border: 1px solid white;
+    border-radius: 50px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+    display: none;
+
+
+}
+
+header nav a:hover + ul, .submenu:hover {
+    display: block;
+}
+
+
+header nav a.iniciarSesion {
+    background: var(--amarillo);
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 15px 15px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+.slider {
+    height: 350px;
+    min-height: 36.62em;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    overflow: hidden;
+}
+
+.slider ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: cambio 20s infinite alternate;
+}
+
+.slider li {
+    width: 100%;
+    list-style: none;
+}
+
+.slider img {
+    width: 100%;
+}
+
+@keyframes cambio {
+    0% {
+        margin-left: 0;
+    }
+    20% {
+        margin-left: 0;
+    }
+
+    20% {
+        margin-left: -100%;
+    }
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+    70% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+    100% {
+        margin-left: -300%;
+    }
+
+}
+
+.title .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title h3 {
+    color: #020202;
+
+}
+
+.title .boton a.Create {
+    font-family: 'Bebas Neue', cursive;
+    background: var(--azul);
+    border: 1px solid var(--amarillo);
+    border-radius: 50px;
+    color: var(--amarillo);
+    padding: 10px 10px;
+    margin-bottom: 0.4em;
+    margin-right: 0px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.title .boton a.Create:hover {
+    background: var(--amarillo);
+    color: var(--azul);
+    border: 1px solid var(--azul);
+}
+
+
+.restaurant .contenedor {
+    display: block;
+    width: 60%;
+
+}
+
+.card {
+    width: 97%;
+    margin: 18px;
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+}
+.card .delete {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 533px;
+    border: 1px solid var(--azul);
+    border-radius: 50%;
+    text-align: center;
+    color: var(--azul);
+}
+
+.card .delete:hover {
+    background: var(--azul);
+    color: var(--amarillo);
+}
+
+.card .delete i {
+    font-size: 15px;
+    line-height: 28px;
+
+
+}
+.card .contenido .edit {
+    margin-left: 500px;
+    cursor: pointer;
+}
+
+.card .contenido .edit:hover {
+    color: var(--amarillo);
+
+}
+.card h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: var(--amarillo);
+
+    text-decoration: var(--azul);
+}
+
+.card:hover {
+    box-shadow: 5px 1px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+
+
+.card img {
+    width: 28%;
+    height: 220px;
+}
+
+.card .contenido {
+}
+
+.card .contenido h3 {
+    color: var(--azul);
+    font-size: 20px;
+
+}
+
+.card .contenido p {
+    color: var(--azul);
+    text-align: justify;
+}
+
+.card .contenido a {
+    color: var(--azul);
+    text-decoration: none;
+    align-items: center;
+}
+
+.card .contenido .conocerMas {
+    color: var(--amarillo);
+    display: flex;
+}
+
+.historia h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: normal;
+    color: white;
+    font-size: 40px;
+
+}
+
+.historia p {
+    color: var(--azul);
+    text-align: justify;
+    font-size: 18px;
+
+}
+
+footer {
+    background: var(--azul);
+    padding-bottom: 0.1px;
+
+}
+
+.piePagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-bottom: 40px;
+
+}
+
+.contactoP {
+    width: 40%;
+    color: white;
+
+}
+
+.contactoP h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.contactoP p {
+    font-weight: 500;
+    color: var(--amarillo);
+}
+
+.RedesSociales {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.RedesSociales a {
+    display: inline-block;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--amarillo);
+    border-radius: 50%;
+    text-align: center;
+    color: var(--amarillo);
+
+}
+
+.RedesSociales a:hover {
+    background: var(--amarillo);
+    color: var(--fondo);
+}
+
+.RedesSociales i {
+    font-size: 30px;
+    line-height: 60px;
+
+}
+
+.line {
+    width: 100%;
+    max-width: 12000px;
+    margin: auto;
+    height: 2px;
+    background: white;
+    margin-bottom: 35px;
+}

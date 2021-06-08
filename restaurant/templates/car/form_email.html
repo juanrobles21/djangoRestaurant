@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/form_email.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+    <title>World Restaurants</title>
+
+</head>
+<body>
+<header>
+    <div class="contenedor">
+        <a class="logo" href={% url 'WorldRestaurant' %} alig="center">World <i class="fas fa-utensils"></i> Restaurants
+        </a>
+        <nav>
+            <a href={% url 'WorldRestaurant' %}>Inicio</a>
+            <a href={% url 'restaurants' %}>Restaurantes</a>
+            <a href={% url 'dish' %}>Platos</a>
+            {% if user.is_authenticated %}
+                <div class="user">
+                    <a herf="#" class="usuario"><i class="fas fa-user"></i> {{ user.username }}<i
+                            class="fas fa-angle-right"></i></a>
+                    <ul class="submenu">
+                        <li><a href={% url 'logout' %}>cerrar sesion<i class="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="log">
+                    <a href={% url 'login' %} class="iniciarSesion">Iniciar sesión</a>
+                </div>
+            {% endif %}
+            <a href={% url 'car' %} class="activo"><i class="fas fa-shopping-cart"></i></a>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="info">
+        <h1 align="center">@{{ user.username }} Gracias por tu compra!</h1>
+        <h3 align="center">{{ user.email }}</h3>
+    </div>
+    <div class="character-box">
+        <h1 class="titulo">Validación de datos</h1>
+        <form action="{% url 'enviarCorreo' %}" method="post">{% csrf_token %}
+            <!-- USER INPUT -->
+            <label>Nombre</label>
+            <input type="text" placeholder="Nombre" name="name">
+            <!-- USER INPUT -->
+            <label>Apellido</label>
+            <input type="text" placeholder="Apellido" name="lastname">
+            <!-- USER INPUT -->
+            <label>Dirección</label>
+            <input type="text" placeholder="Dirección" name="address">
+            <!-- USER INPUT -->
+            <label>Confirmar dirección de correo</label>
+            <input type="text" placeholder="correo@gmail.com" name="mail">
+            <input type="submit" value="Enviar">
+        </form>
+
+    </div>
+</main>
+<footer id="contacto">
+    <div class="contenedor">
+        <div class="piePagina">
+            <div class="contactoP">
+                <h2 class="name">Juan Pablo Robles Arias</h2>
+                <p>Construcción de Software</p>
+            </div>
+            <div class="RedesSociales">
+                <a href="https://www.instagram.com/juanrobles_21/"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.link/kel6ey"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/juan.pablo.robles.arias.21/"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div class="line"></div>
+
+    </div>
+
+</footer>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>

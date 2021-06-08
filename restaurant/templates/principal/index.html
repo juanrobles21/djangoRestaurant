@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+
+    <title>World Restaurants</title>
+
+</head>
+<body>
+<header>
+    <div class="contenedor">
+        <a class="logo" href={% url 'WorldRestaurant' %} alig="center">World <i class="fas fa-utensils"></i> Restaurants
+        </a>
+        <div class="search">
+            <form action="{% url 'search_restaurant_type' %}" method="post">{% csrf_token %}
+                <input type="text" placeholder="Tipo de cocina..." name="search">
+                <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <nav>
+            <a href={% url 'WorldRestaurant' %} class="activo">Inicio</a>
+            <a href={% url 'restaurants' %}>Restaurantes</a>
+            <a href={% url 'dish' %}>Platos</a>
+            {% if user.is_authenticated %}
+                <div class="user">
+                    <a herf="#" class="usuario"><i class="fas fa-user"></i> {{ user.username }}<i
+                            class="fas fa-angle-right"></i></a>
+                    <ul class="submenu">
+                        <li><a href={% url 'logout' %}>cerrar sesion<i class="fas fa-sign-out-alt"></i></a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <div class="log">
+                    <a href={% url 'login' %} class="iniciarSesion">Iniciar sesión</a>
+                </div>
+            {% endif %}
+            <a href={% url 'car' %}><i class="fas fa-shopping-cart"></i></a>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="slider">
+        <ul>
+            <li><img
+                    src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+            </li>
+            <li><img
+                    src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+            </li>
+            <li><img
+                    src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+            </li>
+            <li><img
+                    src="https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=715&q=80">
+            </li>
+        </ul>
+    </div>
+    <div class="title">
+        <div class="contenedor">
+            <h3>Explorar por tipo de cocina</h3>
+            <div class="boton">
+                {% if perms.restaurant.add_restaurant_type %}
+                    <a href={% url 'create_restaurant_type' %} class="Create">Crear Tipo de cocina</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="restaurant">
+        <div class="contenedor">
+            {% for typeFood in restaurantTypes %}
+                <div class="card">
+                    <img src="{{ typeFood.image }}">
+                    {% if perms.restaurant.delete_restaurant_type %}
+                        <a class="delete" href="{% url 'delete_restaurant_type' typeFood.id %}"><i
+                                class="fas fa-minus-circle"></i></a>
+                    {% endif %}
+                    <div class="contenido">
+                        {% if perms.restaurant.change_restaurant_type %}
+                            <a class="edit" href="{% url 'update_restaurant_type' typeFood.id %}">Editar<i class="fas fa-edit"></i>
+                            </a>
+                        {% endif %}
+                        <h1>{{ typeFood.name }}</h1>
+                        <a href="{% url 'detail_restaurant_type' typeFood.id %}" alig="center">Conocer más <i
+                                class="fas fa-angle-double-right"></i></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+<footer id="contacto">
+    <div class="contenedor">
+        <div class="piePagina">
+            <div class="contactoP">
+                <h2 class="name">Juan Pablo Robles Arias</h2>
+                <p>Construcción de Software</p>
+            </div>
+            <div class="RedesSociales">
+                <a href="https://www.instagram.com/juanrobles_21/"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.link/kel6ey"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/juan.pablo.robles.arias.21/"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div class="line"></div>
+
+    </div>
+
+</footer>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>
