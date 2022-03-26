@@ -81,7 +81,7 @@ DATABASES = {
         'HOST': 'localhost',
         'USER': 'postgres',
         'NAME': 'db_restaurants',
-        'PASSWORD': 'Ab1002397519',
+        'PASSWORD': '12345678',
         'PORT': '5432',
     }
 }
